@@ -1,0 +1,175 @@
+/* style modal */
+
+.ion-nifty-modal 
+{
+  width: 90%;
+  min-height: 0 !important;
+  height: 450px !important;
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  /*background-color: transparent;*/
+  border-radius: 5px;
+border: 1px solid black;
+}
+
+.ion-nifty-modal .ion-modal-content-custom 
+{
+  width: 100%;
+  height: 100%;
+  /*color: #FFF;
+  background-color: white;
+  */
+  border-radius: 5px; 
+}
+
+/* Fix modal backdrop for smaller devices */
+@media (max-width: 679px) 
+{
+  .active .modal-backdrop-bg 
+  {
+    opacity: .5; 
+  }
+  .modal-backdrop-bg 
+  {
+  	/*
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;*/
+    background-color: #000;
+    opacity: 0; 
+  } 
+}
+
+/* background stuff */
+
+.homewallpaper
+{
+  /*background:url(../img/city_3_484x860_2.jpg) !important;*/
+  /*background:url(../img/canva_test7.png) !important;
+	background-repeat:no-repeat;
+  background-size:cover;
+  background-size: 100% 100%;
+  overflow:hidden;
+  z-index: 1;*/
+  background: url(../img/canva_test7.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.wallpaper
+{
+  background-color: #D3D3D3;
+  /*background:url(../img/grey_white_middle.png) !important;*/
+
+  /*background-repeat:no-repeat;
+    background-size:cover;
+    overflow:hidden;
+    z-index: 1;
+  */
+}
+
+/* moving stuff down on homepage */
+
+.home_page_forms
+{
+   position: absolute;
+   top: 28%;
+   /*margin-top: 50px;/* half of #content height*/
+   left: 0;
+   width: 100%;
+}
+
+/* style map so it displays properly */
+
+.scroll {
+    height: 100%;
+}
+ 
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* style popover */
+
+.popover {
+  height: auto !important;
+}
+.popover ion-header-bar {
+  position: relative;
+}
+.popover ion-content {
+  top: 0;
+  position: relative;
+}
+.popover-inner-content {
+  width: 100%;
+  padding: 5px 20px;
+}
+
+/* vertically center an element */
+.vertical_center
+{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+
+
+/* center a notification icon within a button */
+.notification_icon
+{
+  /*position: absolute;*/
+  right:20px;
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* add outline to a Ionic grid */
+.grid_outline
+{
+  border: 1px solid;
+  border-radius: 5px; 
+}
+
+/* center notification buttons */
+.notif_buttons_center
+{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.center_text
+{
+  text-align:center;
+}
+
+/* subheader bar */
+.custom_subheader
+{
+  /* outline on bottom */
+  box-shadow: 0 1px 0 black;
+
+  /*margin-top: 49px;*/
+}
+
+.subheader_indent
+{
+  margin-top: 49px;
+}
+
+/* schedule contents */
+
+.schedule_results_content
+{
+  /* add scroll bar */
+  border-radius: 1px;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 4px;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/data_service.js"></script>
+    <script src="js/time_service.js"></script>
+    <script src="js/map_service.js"></script>
+    <script src="js/notification_service.js"></script>
+    <!-- google maps -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDqkKzw-deUQFI4Jc2uP8z3XJO4V1jV9YI&sensor=true"></script>
+
+  </head>
+  <body ng-app="starter" ng-controller="starterCtrl">
+
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-title style="font-weight: bold">
+      Locomotive
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-nav-view></ion-nav-view>
+
+  <!--
+    icon-on="ion-ios-search-strong" icon-off="ion-ios-search-strong"
+    icon-on="ion-android-alarm-clock" icon-off="ion-android-alarm-clock"
+    icon-on="ion-map" icon-off="ion-map"
+  -->
+
+  <script id="templates/tabs.html" type="text/ng-template">
+    <ion-tabs class="tabs-positive">
+      <ion-tab title="Search" ui-sref="app.home">
+        <ion-nav-view name="search-tab"></ion-nav-view>
+      </ion-tab>
+
+
+      <ion-tab title="Notifications" on-select="get_notifications()" ui-sref="app.notifications">
+        <ion-nav-view name="notifications-tab"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Visualize" on-select="share_map_data()" ui-sref="app.map">
+        <ion-nav-view name="visualize-tab"></ion-nav-view>
+      </ion-tab>
+    </ion-tabs>
+  </script>
+
+    <!-- options tool bar -->
+
+    <script id="templates/background.html" type="text/ng-template">
+      <ion-side-menus>
+        <ion-side-menu-content drag-content="false" >
+          <ion-nav-view name="home-view"></ion-nav-view>
+        </ion-side-menu-content>
+
+        <ion-side-menu side="right">
+          <ion-content>
+            <ul class="list">
+              <a class="item" ui-sref="app.home" menu-close>Search</a>
+              <a class="item" menu-close ui-sref="app.notifications">Notifications</a>
+              <a class="item" menu-close ui-sref="app.map" ng-click="set_map_vars()">Visualize</a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+      </ion-side-menus>
+    </script>
+    
+  </body>
+</html>

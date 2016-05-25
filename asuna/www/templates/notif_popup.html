@@ -1,0 +1,7 @@
+<p style="text-align: center">{{notif_template.place}} @ {{notif_template.time}}</p>
+<p style="text-align: center">Notify me {{notif_template.cushion}} minutes before arrival</p>
+<div class="item range range-positive">
+	0
+	<input type="range" name="volume" min="0" max="20" value="{{notif_template.cushion}}" ng-model="notif_template.cushion">
+	20
+</div>

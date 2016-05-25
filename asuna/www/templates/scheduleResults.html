@@ -1,0 +1,78 @@
+<ion-view class="wallpaper">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-ios-search" ui-sref="app.home">
+    </button>
+  </ion-nav-buttons>
+
+  <div class="bar bar-subheader bar-dark subheader_indent">
+    <h6 style="text-align:center; color:white">{{from.value}} to {{to.value}} on {{search_date.bar_string}}</h6>
+  </div>
+
+  <!-- nav bar start -->
+  <!--
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-android-more-vertical" ng-click="openPopover($event)"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  -->
+  <!-- nav bar end -->
+
+  <ion-content class="padding schedule_results_content subheader_indent" overflow-scroll="true">
+
+    <!-- error message -->
+    <div class="list" ng-show="!verify_array(schedules)">
+      <div class="item item-text-wrap">
+        <h2>No data is available right now.</h2>
+      </div>
+    </div>
+    <!-- end error message -->
+
+    <!-- start list of available routes -->
+
+    <div class="list list-inset" ng-repeat='sched in schedules track by $index' ng-init="show={settings: false}">
+
+      <!-- hidden buttons for each route -->
+
+      <div class="item item-divider" ng-show="show.settings">
+        <div class="button-bar">
+          <!--
+          <a class="button button-clear button-dark button-icon icon ion-ios-clock-outline" ng-click="set_live_data(sched)" ui-sref="app.liveData"></a>
+        -->
+          <a class="button button-clear button-small button-dark button-icon icon ion-android-train" ng-click="set_live_data(sched, null)"></a>
+          <a class="button button-clear button-small button-dark button-icon icon ion-information" ng-click="openModal(current_card.info)"></a>
+        </div>
+      </div>
+
+      <!-- end hidden buttons for each routes -->
+
+      <!-- card showing preliminary data -->
+
+      <div class="item item-text-wrap" ng-click="change_cards(sched, show)">
+        <div class="row">
+          <div class="col"><h2><b>Depart</b></h2></div>
+          <div class="col"><h2>{{sched['timeStart_m']}}</h2></div>
+        </div>
+        <div class="row">
+          <div class="col"><h2><b>Arrive</b></h2></div>
+          <div class="col"><h2>{{sched['timeEnd_m']}}</h2></div>
+        </div>
+        <div class="row">
+          <div class="col"><h2><b>Duration</b></h2></div>
+          <div class="col"><h2>{{sched['duration']}}</h2></div>
+        </div>
+        <div class="row">
+          <div class="col"><h2><b>Transfers</b></h2></div>
+          <div class="col"><h2>{{sched['transfers'].length}}</h2></div>
+        </div>
+      </div>
+
+      <!-- end card -->
+
+    </div>
+
+    <!-- end list of available routes -->
+
+  </ion-content>
+</ion-view>

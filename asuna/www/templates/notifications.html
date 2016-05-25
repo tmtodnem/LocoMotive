@@ -1,0 +1,83 @@
+<ion-view class="wallpaper" ng-init="erase_history()">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-android-delete" ng-click="clearall_notif_popup()"></button>
+    <button class="button button-icon icon ion-ios-refresh" ng-click="get_notifications()"></button>
+  </ion-nav-buttons>
+  <!-- nav bar -->
+
+  <!--
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-ios-close-outline" ng-click="clearall_notif_popup()"></button>
+      <>
+      <button class="button button-icon icon ion-android-more-vertical" ng-click="openPopover($event)"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  -->
+  
+  <!-- end nav bar -->
+
+  <ion-content class="padding">
+    <!-- background mode toggle -->
+    <ion-toggle ng-model="backgroundmode.enabled" ng-change="toggle_background_mode()" style="margin-bottom:20px">
+      Background Tracking Mode
+    </ion-toggle>
+    <!-- background mode toggle -->
+
+    <!-- error message -->
+    <div class="list" ng-show="!verify_array(all_notifications)">
+      <div class="item item-text-wrap">
+        <h2>No notifications are currently set.</h2>
+      </div>
+    </div>
+    <!-- end error message -->
+
+    <!-- list of stops and times -->
+
+    <!--<ion-list>-->
+
+      <div class="list list-inset" ng-repeat="notif in all_notifications track by $index" style="margin-bottom:20px">
+        <div class="item item-divider">
+          <div class="button-bar">
+                <button class="button button-small button-icon icon ion-android-train notif_buttons_center" ng-click="set_live_data(notif['schedule'], notif['train_num'])">
+                </button>
+                <button class="button button-small button-icon icon ion-ios-minus-outline notif_buttons_center" ng-click="remove_notif_popup(notif)">
+                </button>
+          </div>
+        </div>
+        <div class="item item-text-wrap">
+          <div class="row" style="font-size:medium">
+            <div class="col"><b>Stop</b></div>
+            <div class="col">{{notif['stop']}}</div>
+          </div>
+          <div class="row" style="font-size:medium">
+            <div class="col"><b>Notification Time</b></div>
+            <div class="col">{{notif['deadline_time']}}</div>
+          </div>
+          <div class="row" style="font-size:medium">
+            <div class="col"><b>Arrival Time</b></div>
+            <div class="col">{{notif['deadline_time_nc']}}</div>
+          </div>
+          <p style="text-align:center; color:grey">Last Updated: {{notif['last_updated']}}</p>
+        </div>
+      </div>
+      <!--
+        <div style="float:left">
+          <h2>{{notif['stop']}}</h2>
+          <h2>{{notif['deadline_time']}}</h2>
+          <p style="text-align:center">Last Updated: {{notif['last_updated']}}</p>
+        </div>
+        <div class="notification_icon">
+          <button class="button button-small button-icon icon ion-ios-search" ng-click="set_live_data(notif['schedule'], notif['train_num'])">
+          </button>
+          <button class="button button-small button-icon icon ion-ios-minus-outline" ng-click="remove_notif_popup(notif)">
+          </button>
+        </div>
+      -->
+      </div>
+    <!--</ion-list>-->
+    <!-- end list -->
+
+  </ion-content>
+</ion-view>

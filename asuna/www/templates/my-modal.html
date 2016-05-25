@@ -1,0 +1,70 @@
+<ion-modal-view class="ion-nifty-modal">
+  <div class="ion-modal-content-custom">
+    <ion-content class="padding" delegate-handle="resetModalScroll">
+
+      <!-- list of stops--> 
+      
+      <div class="list">
+
+        <!-- origin -->
+        <div class="item item-divider">
+          <div class="row">
+            <div class="col col-20"><i class="icon ion-man" style="font-size:20px"></i></div>
+            <div class="col"><h2><b>{{modal_schedule.origin}}</b></h2></div>
+          </div>
+        </div>
+        <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col"><h2><b>Train</b></h2></div>
+            <div class="col"><h2>{{modal_schedule['trainName']}}</h2></div>
+          </div>
+          <div class="row">
+            <div class="col"><h2><b>Depart</b></h2></div>
+            <div class="col"><h2>{{modal_schedule['timeStart_m']}}</h2></div>
+          </div>
+        </div>
+          
+        <!-- transfers -->
+        <div class="item item-divider" ng-repeat-start='t in modal_schedule["transfers"] track by $index'>
+          <div class="row">
+            <div class="col col-20"><i class="icon ion-shuffle" style="font-size:20px"></i></div>
+            <div class="col"><h2><b>{{t['location']}}</b></h2></div>
+          </div>
+        </div>
+        <div class="item item-text-wrap" ng-repeat-end>
+          <div class="row">
+            <div class="col"><h2><b>Train</b></h2></div>
+            <div class="col"><h2>{{t['trainName']}}</h2></div>
+          </div>
+          <div class="row">
+            <div class="col"><h2><b>Arrive</b></h2></div>
+            <div class="col"><h2>{{t['timeArr_m']}}</h2></div>
+          </div>
+          <div class="row">
+            <div class="col"><h2><b>Depart</b></h2></div>
+            <div class="col"><h2>{{t['timeDep_m']}}</h2></div>
+          </div>
+        </div>
+
+        <!-- destination -->
+
+        <div class="item item-divider">
+          <div class="row">
+            <div class="col col-20"><i class="icon ion-ios-location" style="font-size:20px"></i></div>
+            <div class="col"><h2><b>{{modal_schedule.dest}}</b></h2></div>
+          </div>
+        </div>
+        <div class="item item-text-wrap">
+          <div class="row">
+            <div class="col"><h2><b>Arrive</b></h2></div>
+            <div class="col"><h2>{{modal_schedule['timeEnd_m']}}</h2></div>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- end list -->
+
+    </ion-content>
+  </div>
+</ion-modal-view>
